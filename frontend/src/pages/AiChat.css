@@ -1,0 +1,211 @@
+/* ========== General Layout ========== */
+.chat-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* ========== Sidebar ========== */
+.sidebar {
+  width: 260px;
+  background-color: #20232a;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #444;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+.new-chat-btn {
+  background-color: #61dafb;
+  color: #000;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.3s ease;
+}
+
+.new-chat-btn:hover {
+  background-color: #4bbfdc;
+}
+
+.recent-chats p {
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.recent-chats ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.recent-chats li {
+  background-color: #2e2e3a;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.recent-chats li:hover {
+  background-color: #444456;
+}
+
+/* ========== Chat Area ========== */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* ========== Messages ========== */
+.chat-messages {
+  flex: 1;
+  padding: 1.2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  position: relative;
+  font-size: 15px;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background-color: #d1ffd1;
+  border-bottom-right-radius: 0;
+}
+
+.chat-bubble.ai {
+  align-self: flex-start;
+  background-color: #e6f0ff;
+  border-bottom-left-radius: 0;
+}
+
+.chat-bubble.ai.typing {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ========== Typing Spinner ========== */
+.chat-bubble.ai.typing::after {
+  content: "";
+  display: inline-block;
+  margin-left: 8px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #aaa;
+  border-top: 2px solid #333;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== Input Box ========== */
+.chat-input {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  background-color: #fefefe;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 25px;
+  border: 1px solid #bbb;
+  margin-right: 10px;
+  outline: none;
+}
+
+.chat-input button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
+}
+
+/* ========== Code Blocks ========== */
+.code-block {
+  background-color: #1e1e1e;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.copy-button:hover {
+  opacity: 1;
+}
+
+/* ========== Prompt Preview ========== */
+.live-prompt-preview {
+  padding: 10px;
+  text-align: center;
+  background-color: #fff8dc;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  color: #333;
+}
